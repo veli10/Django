@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block body %}
+<form class="form" method="post">
+	<div style="display: grid; gap: 0.25rem">
+		<h3>Login to your account!</h3>
+		<p>Welcome! Please fill in the details to get started.</p>
+	</div>
+	{% csrf_token %}
+	<div class="inputContainer">
+		<label for="{{form.username.id_for_label}}">Username</label>
+		{{form.username}}
+	</div>
+	<div class="inputContainer">
+		<label for="{{form.email.id_for_label}}">Email</label>
+		{{form.email}}
+	</div>
+	<div class="inputContainer">
+		<label for="{{form.password.id_for_label}}">Password</label>
+		{{form.password}}
+	</div>
+	<div class="inputContainer">
+		<label for="{{form.confirm.id_for_label}}">confirm</label>
+		{{form.confirm}}
+	</div>
+	<button class="btn">Continue</button>
+	<p>Already have an account? <a href="{%url 'account:login'%}">Sign in</a></p>
+</form>
+{% endblock body %}

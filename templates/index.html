@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block page__title %}
+    Home Page
+{% endblock page__title %}
+    
+
+{% block body %}
+
+{% if request.user.is_authenticated %}
+    <h2>Welcome, {{request.user.username}}</h2>
+{% endif %}
+
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'warning' %}
+        <div class="error_message message">{{message}}</div>
+    {% else %}
+        <div class="success_message message">{{message}}</div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<h1>Salam Millet</h1>
+
+<div class="articles">
+    <h2>Articles: </h2>
+    <ul>
+        
+        {% for article in articles %}
+            <li>
+                <h3>{{article.author}}</h3>
+                <h4>{{article.title}}</h4>
+                <p>{{article.content}}</p>
+                <small>{{article.created_date}}</small>
+            </li>
+            <hr>
+        {% endfor %}
+            
+    </ul>
+</div>
+{% endblock body %}
