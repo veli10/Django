@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>Update article</h1>
+
+  <form method="post" class="form" enctype="multipart/form-data">
+    <div style="display: grid; gap: 0.25rem; justify-content: center">
+		<h3>Update article!</h3>
+		<p>Please fill all fields to update article.</p>
+	</div>
+    {% csrf_token %}
+	{{form.media}}
+    <div class="inputContainer">
+		<label for="{{form.title.id_for_label}}">Title</label>
+		{{form.title}}
+	</div>
+    <div class="inputContainer">
+		<label for="{{form.content.id_for_label}}">Content</label>
+		{{form.content}}
+	</div>
+    <div class="inputContainer">
+		<label for="{{form.image.id_for_label}}">Image</label>
+		{{form.image}}
+	</div>
+    <button class="btn">Update</button>
+  </form>
+{% endblock body %}

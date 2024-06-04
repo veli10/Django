@@ -19,8 +19,17 @@ body {
 	margin: 0 auto;
 }
 
+.articles {
+	display: grid;
+	gap: 15px;
+}
+
 .articles ul li {
 	list-style: decimal;
+}
+
+.articles button {
+	max-width: max-content;
 }
 
 a {
@@ -76,6 +85,17 @@ button {
 	color: #0b7af9;
 }
 
+.articles img{
+	max-width: 300px;
+	height: auto !important;
+}
+
+.articles li{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
 .inputContainer {
 	display: flex;
 	flex-flow: column;
@@ -84,7 +104,8 @@ button {
 	gap: 0.5rem;
 }
 
-.inputContainer input {
+.inputContainer input,
+.inputContainer textarea {
 	padding: 0.375rem 0.75rem;
 	border: none;
 	background-color: #252a41;
@@ -94,6 +115,11 @@ button {
 	max-height: 2.25rem;
 	width: 100%;
 	border-radius: 0.375rem;
+}
+
+.inputContainer textarea{
+	max-height: 8rem;
+	resize: vertical;
 }
 
 .inputContainer input::placeholder {
@@ -127,6 +153,7 @@ input:-webkit-autofill:focus {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 }
 
 .message {

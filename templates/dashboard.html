@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+
+{% block body %} 
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'warning' %}
+        <div class="error_message message">{{message}}</div>
+    {% else %}
+        <div class="success_message message">{{message}}</div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if request.user.is_authenticated %}
+<h2>Welcome, {{request.user.username}}</h2>
+{% endif %}
+<div class="articles">
+	<h2>Articles:</h2>
+	<ul>
+		{% for article in articles %}
+		<li>
+			<div>
+
+				<h3>{{article.author}}</h3>
+			<h4><a href="{% url 'article-detail' article.id %}">{{article.title}}</a></h4>
+			<p>{{article.content|safe|truncatechars:80}}</p>
+			<small>{{article.created_date}}</small>
+			</div>
+			<div>
+				<a href="{% url 'update' article.id %}">Update</a>
+				<a href="{% url 'delete' article.id %}">Delete</a>
+			</div>
+		</li>
+		<hr />
+		{% endfor %}
+	</ul>
+	<a href="{%url 'addarticles'%}"><button class="btn">Add article</button></a>
+</div>
+{% endblock body %}

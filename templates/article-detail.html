@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+
+{% block body %} 
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'warning' %}
+        <div class="error_message message">{{message}}</div>
+    {% else %}
+        <div class="success_message message">{{message}}</div>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if request.user.is_authenticated %}
+<h2>Welcome, {{request.user.username}}</h2>
+{% endif %}
+<div class="articles">
+	<h3>{{article.author}}</h3>
+	<h4>{{article.title}}</h4>
+	<p>{{article.content|safe}}</p>
+	<small>{{article.created_date}}</small>
+	{% if article.image %}
+    	<img src="{{ article.image.url }}" alt="">
+	{% endif %}
+	
+</div>
+{% endblock body %}

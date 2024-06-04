@@ -24,6 +24,12 @@
 
 					{% if request.user.is_authenticated %}
 						<li>
+							<a href="{%url 'articles'%}">Articles</a>
+						</li>
+						<li>
+							<a href="{%url 'dashboard'%}">Dashboard</a>
+						</li>
+						<li>
 							<a href="{%url 'account:logout'%}">Log out</a>
 						</li>
 					{% else %}

@@ -23,6 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-1zo@m&ln!(@zwb5zbp1ku21gp$w6tejzg+0@u270kbkz5ju#e@"
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 404 sehifesi islesin deye lazimdi
+# DEBUG = False
+
+# ALLOWED_HOSTS = ["*"]
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -39,7 +44,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # My Apps:
     "article",
-    "account"
+    "account",
+    "ckeditor",
+    "django_cleanup"
 ]
 
 MIDDLEWARE = [
@@ -120,6 +127,9 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
