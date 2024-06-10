@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block body %}
+<form class="form">
+	{% csrf_token %}
+	<div class="inputContainer">
+		<input type="text" name="search" placeholder="Search...">
+	</div>
+	<button class="btn" type="submit">Search article</button>
+</form>
+
 <div class="articles">
 	<h2>Articles:</h2>
 	<ul>
